@@ -6,8 +6,26 @@ const TrafficLight = () => {
 
   useEffect(() => {
     if (cycle === true) {
+      const interval = setInterval(() => {
+        switch (activeLight) {
+          case "red":
+            setActiveLight("yellow");
+            break;
+          case "yellow":
+            setActiveLight("green");
+            break;
+          case "green":
+            setActiveLight("red");
+            break;
+          default:
+            setActiveLight("red");
+            break;
+        }
+      }, 1000);
+
+      return () => clearInterval(interval);
     }
-  }, [cycle]);
+  }, [cycle, activeLight]);
 
   return (
     <div className="traffic-light-container">
@@ -29,6 +47,24 @@ const TrafficLight = () => {
           setActiveLight("green");
         }}
       ></div>
+      <button
+        disabled={cycle === true ? "disabled" : ""}
+        className="btn btn-light"
+        onClick={() => {
+          setCycle(true);
+        }}
+      >
+        Start light cycle
+      </button>
+      <button
+        disabled={cycle === false ? "disabled" : ""}
+        className="btn btn-light"
+        onClick={() => {
+          setCycle(false);
+        }}
+      >
+        Stop light cycle
+      </button>
     </div>
   );
 };
