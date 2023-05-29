@@ -81,7 +81,7 @@ const TrafficLight = () => {
                 }}
 
             >
-                {`${hidden === true ? "Show" : "Hide"} Purple Button`}
+                {`${hidden === true ? "Show" : "Hide"} Purple Light`}
             </button>
 
 
