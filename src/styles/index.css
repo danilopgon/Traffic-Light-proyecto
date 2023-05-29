@@ -1,12 +1,49 @@
+.light {
+    border-radius: 50%;
+  }
+  
+  .traffic-light-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: black;
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+  
+  .red {
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+  
+  .yellow {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+  }
+  
+  .green {
+    width: 100px;
+    height: 100px;
+    background: green;
+  }
+  
+  .selected {
+    box-shadow: 0 0 20px 20px rgba(255, 255, 235, 0.5);
+  }
 
-/* 
-
-    You can write your own styles here...
+  .purple {
+    width: 100px;
+    height: 100px;
+    background: purple;
     
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
+  }
+  
+.hidden {
+  display: none;
+}
+  
