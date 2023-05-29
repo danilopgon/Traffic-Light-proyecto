@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const TrafficLight = () => {
     const [activeLight, setActiveLight] = useState(null);
     const [cycle, setCycle] = useState(false);
+    const [hidden, setHidden] = useState(true)
 
     useEffect(() => {
         if (cycle === true) {
@@ -15,7 +16,7 @@ const TrafficLight = () => {
                         setActiveLight("green");
                         break;
                     case "green":
-                        setActiveLight("red");
+                        hidden === true ? setActiveLight("red") : setActiveLight("purple");
                         break;
                     default:
                         setActiveLight("red");
@@ -26,11 +27,6 @@ const TrafficLight = () => {
             return () => clearInterval(interval);
         }
     }, [cycle, activeLight]);
-
-    const handlePurpleButtonClick = () => {
-        setActiveLight("purple");
-    };
-
 
     return (
         <div className="traffic-light-container">
@@ -53,14 +49,14 @@ const TrafficLight = () => {
                 }}
             ></div>
             <div
-                className={`light purple ${activeLight === "purple" ? "selected" : ""}`}
+                className={`light purple ${activeLight === "purple" ? "selected" : ""} ${hidden === true ? "hidden" : ""}`}
                 onClick={() => {
                     setActiveLight("purple");
                 }}
             ></div>
             <button
                 disabled={cycle === true ? "disabled" : ""}
-                className="btn btn-light"
+                className="btn btn-light w-100"
                 onClick={() => {
                     setCycle(true);
                 }}
@@ -69,7 +65,7 @@ const TrafficLight = () => {
             </button>
             <button
                 disabled={cycle === false ? "disabled" : ""}
-                className="btn btn-light"
+                className="btn btn-light w-100"
                 onClick={() => {
                     setCycle(false);
                 }}
@@ -77,9 +73,18 @@ const TrafficLight = () => {
                 Stop light cycle
             </button>
 
-            <button className="button-purple" onClick={handlePurpleButtonClick}>
-                Purple Button
+
+            <button
+                className="btn btn-light w-100"
+                onClick={() => {
+                    setHidden(!hidden);
+                }}
+
+            >
+                {`${hidden === true ? "Show" : "Hide"} Purple Button`}
             </button>
+
+
         </div>
     );
 };

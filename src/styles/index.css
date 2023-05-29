@@ -36,28 +36,14 @@
     box-shadow: 0 0 20px 20px rgba(255, 255, 235, 0.5);
   }
 
-  .light.purple {
+  .purple {
     width: 100px;
     height: 100px;
     background: purple;
     
   }
   
-  .light.purple.selected {
-    box-shadow: 0 0 20px 20px rgba(128, 0, 128, 0.5);
-    
-  }
-
-  .button-purple {
-    width: 130px;
-    height: 35px;
-    border-radius: 0.5rem;
-    border: none;
-    
-  }
-  
-  .button-purple:hover {
-    background: lightsteelblue;
-  }
-
+.hidden {
+  display: none;
+}
   
