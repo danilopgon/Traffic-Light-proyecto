@@ -77,7 +77,9 @@ const TrafficLight = () => {
             <button
                 className="btn btn-light w-100"
                 onClick={() => {
-                    setHidden(!hidden);
+                    setHidden((prev) => {
+                        return !prev
+                    });
                 }}
 
             >
